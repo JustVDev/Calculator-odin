@@ -1,0 +1,53 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100vh;
+	display: flex;
+
+	flex-direction: column;
+	align-items: center;
+}
+.calculator {
+	border: 2px solid red;
+
+	margin: auto;
+	padding: 2rem;
+	flex: 0 1 600px;
+	min-width: 450px;
+	display: flex;
+	flex-direction: column;
+}
+.display {
+	display: flex;
+	padding: 2rem;
+	justify-content: end;
+	align-items: end;
+	font-size: 2rem;
+	background: grey;
+	flex: 2;
+}
+.clear-delete-btns,
+.num-operator-btns {
+	flex: 1;
+}
+.clear-delete-btns {
+	display: flex;
+	align-items: center;
+}
+.clear-delete-btns > * {
+	flex: 1;
+	padding: 1rem;
+}
+
+.num-operator-btns {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+}
+.num-operator-btns > * {
+	flex: 1 1 calc((446px - 4rem) / 4);
+	padding: 0.25rem;
+}
