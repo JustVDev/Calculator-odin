@@ -51,3 +51,10 @@ body {
 	flex: 1 1 calc((446px - 4rem) / 4);
 	padding: 0.25rem;
 }
+img{
+	height: 2rem;
+	width: auto;
+}
+p{
+	font-size: 2rem;
+}

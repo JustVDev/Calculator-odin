@@ -8,21 +8,47 @@ let num1 = null,
 num2 = null,
 operator = null;
 
+const display = document.querySelector('#display');
+let displayValue = 0;
+// +btn.id[1] //change to a num from a string
 
 const btns = [...document.querySelectorAll('button')];
 btns.forEach(btn => btn.addEventListener('click', () => {
     //if it is a number button
     if(btn.id.startsWith('n')){
-        if(!num1){
-            num1 = +btn.id[1] //change to a num from a string + assign it
-            console.log(num1)
+        if(displayValue === 0){
+            displayValue = btn.id[1];
+            display.textContent = btn.id[1];
+        } else {
+            displayValue += btn.id[1];
+            display.textContent += btn.id[1];
         }
         
     }
     //if it is an operator button
     if(btn.id.startsWith('o')){
+        if(!num1){
+            num1 = +displayValue;
+            operator = btn.id.slice(1);
+            displayValue = 0;
+            display.textContent = displayValue;
 
-        console.log('operator')
+        } else {
+            num2 = +displayValue;
+            let answer = operation(num1, operator, num2);
+            displayValue = answer;
+            display.textContent = answer;
+        }
+    if(btn.id.startsWith('e')){
+        num2 = +displayValue;
+        let answer = operation(num1, operator, num2);
+        displayValue = answer;
+        display.textContent = answer;
+    }
+
+        
+
+        
     }
 }));
 
@@ -34,16 +60,16 @@ btns.forEach(btn => btn.addEventListener('click', () => {
 
 function operation(num1, operator, num2) {
     switch(operator){
-        case 'add':
+        case 'Add':
             return add(num1, num2);
             break;
-        case 'subtract':
+        case 'Subtract':
             return subtract(num1, num2);
             break;
-        case 'multiply':
+        case 'Multiply':
             return multiply(num1, num2)
             break;
-        case 'divide':
+        case 'Divide':
             return divide(num1, num2)
             break;
     }
